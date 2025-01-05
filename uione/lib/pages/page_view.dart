@@ -9,7 +9,7 @@ class MyPageView extends StatefulWidget {
 }
 
 class _MyPageViewState extends State<MyPageView> {
-  final _controller = PageController(viewportFraction: 1);
+  final _controller = PageController();
   bool isval = true;
   final List<Map<String, String>> list = [
     {
@@ -59,7 +59,7 @@ class _MyPageViewState extends State<MyPageView> {
                             ),
                             InkWell(
                               onTap: () {
-                                print("object");
+                                _controller.jumpToPage(list.length);
                               },
                               child: Text(
                                 "Skip",
