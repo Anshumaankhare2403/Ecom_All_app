@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import './forgotpassword_page.dart';
-import './singin_page.dart';
+import './log_page.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _LoginState extends State<Login> {
+class _SignInState extends State<SignIn> {
   final List<String> image = [
     "assets/images/l3.png",
     "assets/images/l2.png",
     "assets/images/l1.png",
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,26 +106,56 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ForgotpasswordPage(),
-                        ));
-                  },
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(
+                SizedBox(height: 30),
+                // Password TextField with Shadow
+                Container(
+                  child: TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: FaIcon(
+                          FontAwesomeIcons.lock,
+                          color: Color(0xFF626262),
+                        ),
+                      ),
+                      fillColor: Color(0xFFF3F3F3),
+                      filled: true,
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          width: 3,
                           color: Color(0xFFF83758),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                      hintText: 'ConfirmPassword',
+                      hintStyle: TextStyle(
+                          fontSize: 18,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Color(0xFFA8A8A9),
+                        ),
+                      ),
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
+
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "By clicking the Register button, you agree to the public offer",
+                    style: TextStyle(
+                        color: Color(0xFF676767),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+
                 SizedBox(height: 50),
                 // Login Button
                 Container(
@@ -218,7 +246,7 @@ class _LoginState extends State<Login> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Create An Account",
+                        Text("I Already Have an Account",
                             style: TextStyle(
                               fontSize: 19,
                               color: const Color.fromARGB(255, 0, 0, 0),
@@ -232,11 +260,11 @@ class _LoginState extends State<Login> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SignIn(),
+                                  builder: (context) => Login(),
                                 ));
                           },
                           child: Text(
-                            "Sing Up",
+                            "Login",
                             style: TextStyle(
                               fontSize: 19,
                               color: Color(0xFFF83758),

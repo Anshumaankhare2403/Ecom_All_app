@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import './log_page.dart';
 
 class MyPageView extends StatefulWidget {
   const MyPageView({super.key});
@@ -120,7 +121,11 @@ class _MyPageViewState extends State<MyPageView> {
                               onTap: () {
                                 index != list.length - 1
                                     ? _controller.jumpToPage(index + 1)
-                                    : print("newpage");
+                                    : Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Login(),
+                                        ));
                               },
                               child: Text(
                                 index != 2 ? "Next" : "Get Started",
