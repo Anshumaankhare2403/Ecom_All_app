@@ -82,7 +82,7 @@ class _MyPageViewState extends State<MyPageView> {
                             Image.asset(
                               list[index]["image"]!,
                               height: screenHeight * 0.4,
-                              width: screenWidth * 0.8,
+                              width: screenWidth * 1.0,
                               fit: BoxFit.cover,
                             ),
                             SizedBox(height: screenHeight * 0.02),
