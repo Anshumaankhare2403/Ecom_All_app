@@ -31,7 +31,7 @@ class _SignInState extends State<SignIn> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Welcome\nBack!",
+                  "Create an\naccount",
                   style: TextStyle(
                     fontSize: screenWidth * 0.12, // Dynamic font size
                     fontWeight: FontWeight.w900,
@@ -167,7 +167,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   child: Center(
                     child: Text(
-                      "Login",
+                      "Create Account",
                       style: TextStyle(
                           fontSize: screenWidth * 0.055,
                           color: Colors.white,
