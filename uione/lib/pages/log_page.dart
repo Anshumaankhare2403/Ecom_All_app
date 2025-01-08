@@ -19,11 +19,15 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen width and height
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(screenWidth * 0.06), // Dynamic padding
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,20 +35,21 @@ class _LoginState extends State<Login> {
                 Text(
                   "Welcome\nBack!",
                   style: TextStyle(
-                    fontSize: 45,
+                    fontSize: screenWidth * 0.12, // Dynamic font size
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                SizedBox(height: 20),
-                // Username TextField with Shadow
+                SizedBox(height: screenHeight * 0.03), // Dynamic spacing
+                // Username TextField
                 Container(
                   child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: EdgeInsets.all(screenWidth * 0.04),
                         child: FaIcon(
                           FontAwesomeIcons.solidUser,
                           color: Color(0xFF626262),
+                          size: screenWidth * 0.06,
                         ),
                       ),
                       fillColor: Color(0xFFF3F3F3),
@@ -58,7 +63,7 @@ class _LoginState extends State<Login> {
                       ),
                       hintText: 'Username or Email',
                       hintStyle: TextStyle(
-                          fontSize: 18,
+                          fontSize: screenWidth * 0.045, // Dynamic font size
                           color: Colors.grey,
                           fontWeight: FontWeight.w500),
                       enabledBorder: OutlineInputBorder(
@@ -71,17 +76,18 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
-                // Password TextField with Shadow
+                SizedBox(height: screenHeight * 0.04),
+                // Password TextField
                 Container(
                   child: TextField(
                     obscureText: true,
                     decoration: InputDecoration(
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: EdgeInsets.all(screenWidth * 0.04),
                         child: FaIcon(
                           FontAwesomeIcons.lock,
                           color: Color(0xFF626262),
+                          size: screenWidth * 0.06,
                         ),
                       ),
                       fillColor: Color(0xFFF3F3F3),
@@ -95,7 +101,7 @@ class _LoginState extends State<Login> {
                       ),
                       hintText: 'Password',
                       hintStyle: TextStyle(
-                          fontSize: 18,
+                          fontSize: screenWidth * 0.045,
                           color: Colors.grey,
                           fontWeight: FontWeight.w500),
                       enabledBorder: OutlineInputBorder(
@@ -108,7 +114,7 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: screenHeight * 0.02),
                 InkWell(
                   onTap: () {
                     Navigator.push(
@@ -123,15 +129,15 @@ class _LoginState extends State<Login> {
                       "Forgot Password?",
                       style: TextStyle(
                           color: Color(0xFFF83758),
-                          fontSize: 16,
+                          fontSize: screenWidth * 0.04,
                           fontWeight: FontWeight.w400),
                     ),
                   ),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: screenHeight * 0.06),
                 // Login Button
                 Container(
-                  height: 60,
+                  height: screenHeight * 0.08,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xFFF83758),
@@ -141,92 +147,54 @@ class _LoginState extends State<Login> {
                     child: Text(
                       "Login",
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: screenWidth * 0.055,
                           color: Colors.white,
                           fontWeight: FontWeight.w900),
                     ),
                   ),
                 ),
-                SizedBox(height: 50),
-
+                SizedBox(height: screenHeight * 0.06),
                 Column(
                   children: [
                     Text("- OR Continue with -",
                         style: TextStyle(
-                            fontSize: 16,
-                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: screenWidth * 0.045,
+                            color: Colors.black,
                             fontWeight: FontWeight.w500)),
+                    SizedBox(height: screenHeight * 0.02),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
+                      children: List.generate(image.length, (index) {
+                        return Padding(
+                          padding: EdgeInsets.all(screenWidth * 0.02),
                           child: Container(
-                            height: 70,
-                            width: 70, // Adjust the width for larger images
+                            height: screenWidth * 0.18,
+                            width: screenWidth * 0.18,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
-                                  40), // Half of width/height
+                                  screenWidth * 0.09), // Circular
                               border: Border.all(
                                   color: Color(0xffF83758), width: 3),
                               image: DecorationImage(
-                                image: AssetImage(image[0]),
-                                fit: BoxFit.none, // Ensures the image fits well
+                                image: AssetImage(image[index]),
+                                fit: BoxFit.none,
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 70,
-                            width: 70, // Adjust the width for larger images
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  40), // Half of width/height
-                              border: Border.all(
-                                  color: Color(0xffF83758), width: 3),
-                              image: DecorationImage(
-                                image: AssetImage(image[1]),
-                                fit: BoxFit.none, // Ensures the image fits well
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 70,
-                            width: 70, // Adjust the width for larger images
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  40), // Half of width/height
-                              border: Border.all(
-                                  color: Color(0xffF83758), width: 3),
-                              image: DecorationImage(
-                                image: AssetImage(image[2]),
-                                fit: BoxFit.none, // Ensures the image fits well
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                        );
+                      }),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: screenHeight * 0.02),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Create An Account",
                             style: TextStyle(
-                              fontSize: 19,
-                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontSize: screenWidth * 0.05,
+                              color: Colors.black,
                               fontWeight: FontWeight.w500,
                             )),
-                        SizedBox(
-                          width: 10,
-                        ),
+                        SizedBox(width: screenWidth * 0.02),
                         InkWell(
                           onTap: () {
                             Navigator.push(
@@ -236,13 +204,12 @@ class _LoginState extends State<Login> {
                                 ));
                           },
                           child: Text(
-                            "Sing Up",
+                            "Sign Up",
                             style: TextStyle(
-                              fontSize: 19,
+                              fontSize: screenWidth * 0.05,
                               color: Color(0xFFF83758),
                               fontWeight: FontWeight.w500,
-                              decoration: TextDecoration
-                                  .underline, // Adds underline to the text
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         )

@@ -17,11 +17,15 @@ class _SignInState extends State<SignIn> {
   ];
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(screenWidth * 0.06), // Dynamic padding
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,137 +33,133 @@ class _SignInState extends State<SignIn> {
                 Text(
                   "Welcome\nBack!",
                   style: TextStyle(
-                    fontSize: 45,
+                    fontSize: screenWidth * 0.12, // Dynamic font size
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                SizedBox(height: 20),
-                // Username TextField with Shadow
-                Container(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.solidUser,
-                          color: Color(0xFF626262),
-                        ),
+                SizedBox(height: screenHeight * 0.02),
+                // Username TextField
+                TextField(
+                  decoration: InputDecoration(
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.all(screenWidth * 0.04),
+                      child: FaIcon(
+                        FontAwesomeIcons.solidUser,
+                        color: Color(0xFF626262),
+                        size: screenWidth * 0.06,
                       ),
-                      fillColor: Color(0xFFF3F3F3),
-                      filled: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                          width: 3,
-                          color: Color(0xFFF83758),
-                        ),
+                    ),
+                    fillColor: Color(0xFFF3F3F3),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Color(0xFFF83758),
                       ),
-                      hintText: 'Username or Email',
-                      hintStyle: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Color(0xFFA8A8A9),
-                        ),
+                    ),
+                    hintText: 'Username or Email',
+                    hintStyle: TextStyle(
+                        fontSize: screenWidth * 0.045,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Color(0xFFA8A8A9),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
-                // Password TextField with Shadow
-                Container(
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.lock,
-                          color: Color(0xFF626262),
-                        ),
+                SizedBox(height: screenHeight * 0.03),
+                // Password TextField
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.all(screenWidth * 0.04),
+                      child: FaIcon(
+                        FontAwesomeIcons.lock,
+                        color: Color(0xFF626262),
+                        size: screenWidth * 0.06,
                       ),
-                      fillColor: Color(0xFFF3F3F3),
-                      filled: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                          width: 3,
-                          color: Color(0xFFF83758),
-                        ),
+                    ),
+                    fillColor: Color(0xFFF3F3F3),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Color(0xFFF83758),
                       ),
-                      hintText: 'Password',
-                      hintStyle: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Color(0xFFA8A8A9),
-                        ),
+                    ),
+                    hintText: 'Password',
+                    hintStyle: TextStyle(
+                        fontSize: screenWidth * 0.045,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Color(0xFFA8A8A9),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
-                // Password TextField with Shadow
-                Container(
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.lock,
-                          color: Color(0xFF626262),
-                        ),
+                SizedBox(height: screenHeight * 0.03),
+                // Confirm Password TextField
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.all(screenWidth * 0.04),
+                      child: FaIcon(
+                        FontAwesomeIcons.lock,
+                        color: Color(0xFF626262),
+                        size: screenWidth * 0.06,
                       ),
-                      fillColor: Color(0xFFF3F3F3),
-                      filled: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                          width: 3,
-                          color: Color(0xFFF83758),
-                        ),
+                    ),
+                    fillColor: Color(0xFFF3F3F3),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Color(0xFFF83758),
                       ),
-                      hintText: 'ConfirmPassword',
-                      hintStyle: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Color(0xFFA8A8A9),
-                        ),
+                    ),
+                    hintText: 'Confirm Password',
+                    hintStyle: TextStyle(
+                        fontSize: screenWidth * 0.045,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Color(0xFFA8A8A9),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
-
+                SizedBox(height: screenHeight * 0.02),
+                // Public Offer Text
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
                     "By clicking the Register button, you agree to the public offer",
                     style: TextStyle(
                         color: Color(0xFF676767),
-                        fontSize: 16,
+                        fontSize: screenWidth * 0.04,
                         fontWeight: FontWeight.w400),
                   ),
                 ),
-
-                SizedBox(height: 50),
+                SizedBox(height: screenHeight * 0.06),
                 // Login Button
                 Container(
-                  height: 60,
+                  height: screenHeight * 0.08,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xFFF83758),
@@ -169,92 +169,58 @@ class _SignInState extends State<SignIn> {
                     child: Text(
                       "Login",
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: screenWidth * 0.055,
                           color: Colors.white,
                           fontWeight: FontWeight.w900),
                     ),
                   ),
                 ),
-                SizedBox(height: 50),
-
+                SizedBox(height: screenHeight * 0.06),
                 Column(
                   children: [
-                    Text("- OR Continue with -",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            fontWeight: FontWeight.w500)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 70,
-                            width: 70, // Adjust the width for larger images
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  40), // Half of width/height
-                              border: Border.all(
-                                  color: Color(0xffF83758), width: 3),
-                              image: DecorationImage(
-                                image: AssetImage(image[0]),
-                                fit: BoxFit.none, // Ensures the image fits well
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 70,
-                            width: 70, // Adjust the width for larger images
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  40), // Half of width/height
-                              border: Border.all(
-                                  color: Color(0xffF83758), width: 3),
-                              image: DecorationImage(
-                                image: AssetImage(image[1]),
-                                fit: BoxFit.none, // Ensures the image fits well
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 70,
-                            width: 70, // Adjust the width for larger images
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                  40), // Half of width/height
-                              border: Border.all(
-                                  color: Color(0xffF83758), width: 3),
-                              image: DecorationImage(
-                                image: AssetImage(image[2]),
-                                fit: BoxFit.none, // Ensures the image fits well
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
+                    Text(
+                      "- OR Continue with -",
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.045,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      children: image
+                          .map((img) => Padding(
+                                padding: EdgeInsets.all(screenWidth * 0.02),
+                                child: Container(
+                                  height: screenWidth * 0.18,
+                                  width: screenWidth * 0.18,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                        screenWidth * 0.09),
+                                    border: Border.all(
+                                        color: Color(0xffF83758), width: 3),
+                                    image: DecorationImage(
+                                      image: AssetImage(img),
+                                      fit: BoxFit.none,
+                                    ),
+                                  ),
+                                ),
+                              ))
+                          .toList(),
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("I Already Have an Account",
-                            style: TextStyle(
-                              fontSize: 19,
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontWeight: FontWeight.w500,
-                            )),
-                        SizedBox(
-                          width: 10,
+                        Text(
+                          "I Already Have an Account",
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.045,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
+                        SizedBox(width: screenWidth * 0.02),
                         InkWell(
                           onTap: () {
                             Navigator.push(
@@ -266,18 +232,17 @@ class _SignInState extends State<SignIn> {
                           child: Text(
                             "Login",
                             style: TextStyle(
-                              fontSize: 19,
+                              fontSize: screenWidth * 0.045,
                               color: Color(0xFFF83758),
                               fontWeight: FontWeight.w500,
-                              decoration: TextDecoration
-                                  .underline, // Adds underline to the text
+                              decoration: TextDecoration.underline,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     )
                   ],
-                )
+                ),
               ],
             ),
           ),

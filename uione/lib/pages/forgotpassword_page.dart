@@ -11,11 +11,15 @@ class ForgotpasswordPage extends StatefulWidget {
 class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
   @override
   Widget build(BuildContext context) {
+    // Get screen width and height
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(screenWidth * 0.06), // Dynamic padding
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,20 +27,21 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                 Text(
                   "Forgot\npassword?",
                   style: TextStyle(
-                    fontSize: 45,
+                    fontSize: screenWidth * 0.12, // Dynamic font size
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                SizedBox(height: 30),
-                // Username TextField with Shadow
+                SizedBox(height: screenHeight * 0.04), // Dynamic spacing
+                // Username TextField
                 Container(
                   child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: EdgeInsets.all(screenWidth * 0.04),
                         child: FaIcon(
                           FontAwesomeIcons.solidEnvelope,
                           color: Color(0xFF626262),
+                          size: screenWidth * 0.06, // Dynamic icon size
                         ),
                       ),
                       fillColor: Color(0xFFF3F3F3),
@@ -50,7 +55,7 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                       ),
                       hintText: 'Username or Email',
                       hintStyle: TextStyle(
-                          fontSize: 18,
+                          fontSize: screenWidth * 0.045, // Dynamic font size
                           color: Colors.grey,
                           fontWeight: FontWeight.w500),
                       enabledBorder: OutlineInputBorder(
@@ -63,31 +68,22 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                     ),
                   ),
                 ),
-
-                SizedBox(height: 30),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ForgotpasswordPage(),
-                        ));
-                  },
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "* We will send you a message to set or reset your new password",
-                      style: TextStyle(
-                          color: Color(0xFFF83758),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400),
-                    ),
+                SizedBox(height: screenHeight * 0.04),
+                // Instruction Text
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "* We will send you a message to set or reset your new password",
+                    style: TextStyle(
+                        color: Color(0xFFF83758),
+                        fontSize: screenWidth * 0.04, // Dynamic font size
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
-                SizedBox(height: 50),
-                // Login Button
+                SizedBox(height: screenHeight * 0.06),
+                // Submit Button
                 Container(
-                  height: 60,
+                  height: screenHeight * 0.08, // Dynamic height
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xFFF83758),
@@ -97,7 +93,7 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                     child: Text(
                       "Submit",
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: screenWidth * 0.055, // Dynamic font size
                           color: Colors.white,
                           fontWeight: FontWeight.w900),
                     ),
